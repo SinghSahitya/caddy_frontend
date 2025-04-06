@@ -1,0 +1,69 @@
+.results-display {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .results-display h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .results-display h3 {
+    margin-top: 0;
+    color: #34495e;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .main-prediction {
+    margin-bottom: 2rem;
+  }
+  
+  .prediction-card {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .prediction-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    text-transform: capitalize;
+  }
+  
+  .prediction-confidence {
+    display: flex;
+    align-items: center;
+  }
+  
+  .confidence-bar {
+    flex: 1;
+    height: 12px;
+    background-color: #ecf0f1;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .confidence-fill {
+    height: 100%;
+    background-color: #3498db;
+  }
+  
+  .main-prediction .confidence-fill {
+    background-color: #2ecc71;
+  }
+  
+  .confidence-value {
+    margin-left: 1rem;
+    font-weight: 500;
+    width: 60px;
+    text-align: right;
+  }
+  
