@@ -6,22 +6,24 @@ const FileUpload = ({ onResults, onLoading, onError }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const fileInputRef = useRef(null);
   
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const fileName = file.name.toLowerCase();
-      if (!fileName.endsWith('.off') && !fileName.endsWith('.stl')) {
-        onError('Please upload a .OFF or .STL file format');
-        setSelectedFile(null);
-        // Reset file input
-        if (fileInputRef.current) {
-          fileInputRef.current.value = '';
-        }
-        return;
+const handleFileChange = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const fileName = file.name.toLowerCase();
+    if (!fileName.endsWith('.off') && !fileName.endsWith('.stl') && 
+        !fileName.endsWith('.step') && !fileName.endsWith('.stp')) {
+      onError('Please upload a .OFF, .STL, or .STEP file format');
+      setSelectedFile(null);
+      // Reset file input
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
       }
-      setSelectedFile(file);
+      return;
     }
-  };
+    setSelectedFile(file);
+  }
+};
+
   
   const handleUpload = async () => {
     if (!selectedFile) {
@@ -90,13 +92,14 @@ const FileUpload = ({ onResults, onLoading, onError }) => {
         </div>
       </div>
       
-      <input
-        type="file"
-        accept=".off,.stl"
-        onChange={handleFileChange}
-        style={{ display: 'none' }}
-        ref={fileInputRef}
-      />
+    <input
+      type="file"
+      accept=".off,.stl,.step,.stp"
+      onChange={handleFileChange}
+      style={{ display: 'none' }}
+      ref={fileInputRef}
+    />
+
       
       <button 
         className="upload-button"
